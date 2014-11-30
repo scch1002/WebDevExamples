@@ -67,6 +67,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ExampleCheckList.html" />
+    <Content Include="Html\Canvas\Canvas.html" />
+    <Content Include="Html\Canvas\Canvas.js" />
+    <Content Include="Javascript\ArrayApi\ArrayApi.html" />
+    <Content Include="Javascript\ArrayApi\ArrayApi.js" />
     <Content Include="Javascript\GeoLocation\GeoLocation.html" />
     <Content Include="Javascript\GeoLocation\GeoLocation.js" />
     <Content Include="Javascript\WebStorage\WebStorage.html" />

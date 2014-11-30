@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Array Api Example</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="ArrayApi.js"></script>
+</head>
+<body class="container">
+    <header>
+        <h1>Array Api Example</h1>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Index
+                            </th>
+                            <th>
+                                Value
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="arrayExampleDisplay">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Pop Value</h3>
+                        <input id="popItem" type="button" class="btn btn-default" value="Pop" />
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Push Value</h3>
+                        <input id="pushValue" type="text" value="" />
+                        <input id="pushItem" type="button" value="Push" class="btn btn-default" />
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Reverse Values</h3>
+                        <input id="reverseItems" type="button" value="Reverse" class="btn btn-default" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Shift Value</h3>
+                        <input id="shiftItem" type="button" class="btn btn-default" value="Shift" />
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Unshift Value</h3>
+                        <input id="unShiftValue" type="text" value="" />
+                        <input id="unshiftItem" type="button" class="btn btn-default" value="Unshift" />
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Sort Values</h3>
+                        <input id="sortItems" type="button" class="btn btn-default" value="Sort" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Array Api Example
+    </footer>
+    <div id="returnedValueModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Value Returned</h4>
+                </div>
+                <div id="modalBody" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
