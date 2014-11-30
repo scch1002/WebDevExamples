@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\webdevexamples - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\webdevexamples - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -67,6 +69,11 @@
   <ItemGroup>
     <Content Include="Javascript\WebStorage\WebStorage.html" />
     <Content Include="Javascript\WebStorage\WebStorage.js" />
+    <Content Include="Javascript\WebWorker\N2WebWorker.js" />
+    <Content Include="Javascript\WebWorker\NNWebWorker.js" />
+    <Content Include="Javascript\WebWorker\WaitNMinutesWebWorker.js" />
+    <Content Include="Javascript\WebWorker\WebWorker.html" />
+    <Content Include="Javascript\WebWorker\WebWorker.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
