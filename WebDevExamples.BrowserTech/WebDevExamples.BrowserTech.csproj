@@ -67,6 +67,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Javascript\GeoLocation\GeoLocation.html" />
+    <Content Include="Javascript\GeoLocation\GeoLocation.js" />
     <Content Include="Javascript\WebStorage\WebStorage.html" />
     <Content Include="Javascript\WebStorage\WebStorage.js" />
     <Content Include="Javascript\WebWorker\N2WebWorker.js" />

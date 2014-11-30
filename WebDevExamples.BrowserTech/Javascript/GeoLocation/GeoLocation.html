@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Geolocation Example</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="GeoLocation.js"></script>
+</head>
+<body class="container">
+    <header>
+        <h1>Geolocation Example</h1>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Get Current Position</div>
+                    <div class="panel-body">
+                        <dl>
+                            <dt>
+                                Latitude:
+                            </dt>
+                            <dd id="getCurrentLocationlatitude">
+                                Not Set
+                            </dd>
+                            <dt>
+                                Longitude:
+                            </dt>
+                            <dd id="getCurrentLocationlongitude">
+                                Not Set
+                            </dd>
+                        </dl>
+                        <input id="getCurrentLocation" type="button" class="btn btn-primary" value="Get Current Location" />
+                    </div>
+                    <div class="panel-footer">Panel footer</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Track Position</div>
+                    <div class="panel-body">
+                        <dl>
+                            <dt>
+                                Latitude:
+                            </dt>
+                            <dd id="trackLocationlatitude">
+                                Not Set
+                            </dd>
+                            <dt>
+                                Longitude:
+                            </dt>
+                            <dd id="trackLocationlongitude">
+                                Not Set
+                            </dd>
+                        </dl>
+                        <input id="trackCurrentLocation" type="button" class="btn btn-primary" value="Track Location" />
+                        <input id="stopTrackingCurrentLocation" type="button" class="btn btn-danger" value="Stop Tracking Location" />
+                    </div>
+                    <div class="panel-footer">Panel footer</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="geolocationNotAvailable" class="alert alert-danger hidden" role="alert">Geolocation services are not available.</div>
+    <footer>
+        Geolocation Example
+    </footer>
+</body>
+</html>

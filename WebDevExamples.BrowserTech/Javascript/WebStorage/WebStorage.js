@@ -6,6 +6,7 @@ webDevExamples.javascript.webstorage = webDevExamples.javascript.webstorage || {
     var webstorage = this;
 
     webstorage.saveValueLocalStorage = function (event) {
+        event.preventDefault();
         var key = $(event.currentTarget).find('#key').val();
         var value = $(event.currentTarget).find('#value').val();
         localStorage.setItem(key, value);
@@ -23,10 +24,11 @@ webDevExamples.javascript.webstorage = webDevExamples.javascript.webstorage || {
     };
 
     webstorage.saveValueSessionStorage = function (event) {
+        event.preventDefault();
         var key = $(event.currentTarget).find('#key').val();
         var value = $(event.currentTarget).find('#value').val();
         sessionStorage.setItem(key, value);
-        webstorage.displayLocalStorage();
+        webstorage.displaySessionStorage();
     };
 
     webstorage.deleteValueSessionStorage = function (event) {
