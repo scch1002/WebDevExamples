@@ -19,10 +19,14 @@ webDevExamples.javascript.geolocation = webDevExamples.javascript.geolocation ||
             $('#trackLocationlatitude').text(position.coords.latitude);
             $('#trackLocationlongitude').text(position.coords.longitude);
         });
+        $('#stopTrackingCurrentLocation').prop('disabled', false);
+        $('#trackCurrentLocation').prop('disabled', true);
     };
 
     geolocation.stopTrackingLocation = function (event) {
         navigator.geolocation.clearWatch(trackingId);
+        $('#stopTrackingCurrentLocation').prop('disabled', true);
+        $('#trackCurrentLocation').prop('disabled', false);
     };
 
     geolocation.init = function () {
