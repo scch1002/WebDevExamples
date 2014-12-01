@@ -72,6 +72,9 @@
     <Content Include="Html\Canvas\Canvas.js" />
     <Content Include="Html\DragAndDrop\DragAndDrop.html" />
     <Content Include="Html\DragAndDrop\DragAndDrop.js" />
+    <Content Include="Html\Form\Form.html" />
+    <Content Include="Html\HtmlElements\HtmlElements.html" />
+    <Content Include="Html\HtmlElements\HtmlElements.js" />
     <Content Include="Javascript\ArrayApi\ArrayApi.html" />
     <Content Include="Javascript\ArrayApi\ArrayApi.js" />
     <Content Include="Javascript\GeoLocation\GeoLocation.html" />
