@@ -70,6 +70,8 @@
     <Content Include="ExampleCheckList.html" />
     <Content Include="Html\Canvas\Canvas.html" />
     <Content Include="Html\Canvas\Canvas.js" />
+    <Content Include="Html\DragAndDrop\DragAndDrop.html" />
+    <Content Include="Html\DragAndDrop\DragAndDrop.js" />
     <Content Include="Javascript\ArrayApi\ArrayApi.html" />
     <Content Include="Javascript\ArrayApi\ArrayApi.js" />
     <Content Include="Javascript\GeoLocation\GeoLocation.html" />
@@ -86,6 +88,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

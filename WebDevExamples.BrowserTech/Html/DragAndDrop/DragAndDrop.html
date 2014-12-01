@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Drag and Drop Example</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="DragAndDrop.js"></script>
+</head>
+<body class="container">
+    <header>
+        <h1>Drag and Drop Example</h1>
+    </header>
+    <main class="container">
+        <section class="row">
+            <header>
+                <h2>Simple Drag and Drop Example</h2>
+            </header>
+            <div class="col-md-6">
+                <div id="simpleItemList1" class="list-group" style="min-height:25px;">
+                    <div class="list-group-item" draggable="true">Item 1</div>
+                    <div class="list-group-item" draggable="true">Item 2</div>
+                    <div class="list-group-item" draggable="true">Item 3</div>
+                    <div class="list-group-item" draggable="true">Item 4</div>
+                    <div class="list-group-item" draggable="true">Item 5</div>
+                    <div class="list-group-item" draggable="true">Item 6</div>
+                    <div class="list-group-item" draggable="true">Item 7</div>
+                    <div class="list-group-item" draggable="true">Item 8</div>
+                    <div class="list-group-item" draggable="true">Item 9</div>
+                    <div class="list-group-item" draggable="true">Item 10</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="simpleItemList2" class="list-group" style="min-height:25px;">
+                    <div class="list-group-item" draggable="true">Item 11</div>
+                </div>
+            </div>
+        </section>
+        <section class="row">
+            <header>
+                <h2>File Drag and Drop Example</h2>
+            </header>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Drop Files Here</div>
+                <div id="fileDropLocation" class="panel-body" style="height:200px">
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Size
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="fileInfo">
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        Drag and Drop Example
+    </footer>
+</body>
+</html>
