@@ -10,8 +10,115 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link href="Form.css" rel="stylesheet" />
 </head>
-<body>
-
+<body class="container">
+    <header>
+        <h1>Form Example</h1>
+    </header>
+    <main class="container">
+        <div class="role">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="textInput">Text Input:</label>
+                        <input id="textInput" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="buttonInput">Button Input:</label>
+                        <input id="buttonInput" type="button" value="Button Input" class="form-control btn btn-success" />
+                    </div>
+                    <div class="form-group">
+                        <label for="checkboxInput">CheckBox Input:</label>
+                        <input id="checkboxInput" type="checkbox" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="textInput">Color Input:</label>
+                        <input id="colorInput" type="color" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="textInput">Date Input:</label>
+                        <input id="dateInput" type="date" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="datetimeInput">Datetime Input:</label>
+                        <input id="datetimeInput" type="datetime" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="datetime-localInput">Datetime-local Input:</label>
+                        <input id="datetime-localInput" type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="emailInput">Email Input:</label>
+                        <input id="emailInput" type="email" class="form-control checkControlValidity" />
+                    </div>
+                    <div class="form-group">
+                        <label for="fileInput">File Input:</label>
+                        <input id="fileInput" type="file" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="hiddenInput">Hidden Input:</label>
+                        <input id="hiddenInput" type="hidden" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="imageInput">Image Input:</label>
+                        <input id="imageInput" type="image" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="monthInput">Month Input:</label>
+                        <input id="monthInput" type="month" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="numberInput">Number Input:</label>
+                        <input id="numberInput" type="number" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordInput">Password Input:</label>
+                        <input id="passwordInput" type="password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="radioInput">Radio Input:</label>
+                        <input id="radioInput" name="radioInput" type="radio" class="form-control" />
+                        <input id="radioInput" name="radioInput" type="radio" class="form-control" />
+                        <input id="radioInput" name="radioInput" type="radio" class="form-control" />
+                        <input id="radioInput" name="radioInput" type="radio" class="form-control" />
+                        <input id="radioInput" name="radioInput" type="radio" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="rangeInput">Range Input:</label>
+                        <input id="rangeInput" name="rangeInput" type="range" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="resetInput">Reset Input:</label>
+                        <input id="resetInput" name="resetInput" type="reset" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="searchInput">Search Input:</label>
+                        <input id="searchInput" name="searchInput" type="search" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="telInput">Tel Input:</label>
+                        <input id="telInput" name="telInput" type="search" class="form-control checkControlValidity" />
+                    </div>
+                    <div class="form-group">
+                        <label for="timeInput">Time Input:</label>
+                        <input id="timeInput" name="timeInput" type="time" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="urlInput">Url Input:</label>
+                        <input id="urlInput" name="urlInput" type="url" class="form-control checkControlValidity" />
+                    </div>
+                    <div class="form-group">
+                        <label for="weekInput">Week Input:</label>
+                        <input id="weekInput" name="weekInput" type="week" class="form-control" />
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Form Example
+    </footer>
 </body>
 </html>

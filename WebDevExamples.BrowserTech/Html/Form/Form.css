@@ -1,0 +1,7 @@
+﻿.checkControlValidity:valid {
+    background-color: none;
+}
+
+.checkControlValidity:invalid {
+    background-color: red;
+}
