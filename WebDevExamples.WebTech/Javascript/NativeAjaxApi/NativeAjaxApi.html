@@ -14,9 +14,92 @@
 
     <script src="NativeAjaxApi.js"></script>
 </head>
-<body>
+<body class="container">
     <header>
         <h1>Native Ajax Api Example</h1>
     </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">Get</header>
+                    <form id="getExample">
+                        <div class="panel-body">
+                            <h4>Result:</h4>
+                            <div class="resultOutput list-group">
+                                No Result
+                            </div>
+                        </div>
+                        <footer class="panel-footer">
+                            <input id="getSubmit" type="submit" class="btn btn-primary" value="Send" />
+                            <input type="reset" class="resetExample btn btn-danger" value="Reset" />
+                        </footer>
+                    </form>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">Post</header>
+                    <form id="postExample">
+                        <div class="panel-body">
+                            <label for="postInput">Text to Send:</label>
+                            <textarea id="postInput" class="form-control"></textarea>
+                            <h4>Result:</h4>
+                            <div class="resultOutput list-group">
+                                No Result
+                            </div>
+                        </div>
+                        <footer class="panel-footer">
+                            <input type="submit" class="btn btn-primary" value="Send" />
+                            <input type="reset" class="resetExample btn btn-danger" value="Reset" />
+                        </footer>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">Put</header>
+                    <form id="putExample">
+                        <div class="panel-body">
+                            <label for="putInput">Text to Send:</label>
+                            <textarea id="putInput" class="form-control"></textarea>
+                            <h4>Result:</h4>
+                            <div class="resultOutput list-group">
+                                No Result
+                            </div>
+                        </div>
+                        <footer class="panel-footer">
+                            <input id="getSubmit" type="submit" class="btn btn-primary" value="Send" />
+                            <input type="reset" class="resetExample btn btn-danger" value="Reset" />
+                        </footer>
+                    </form>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">Delete</header>
+                    <form id="deleteExample">
+                        <div class="panel-body">
+                            <label for="deleteInput">Text to Send:</label>
+                            <textarea id="deleteInput" class="form-control"></textarea>
+                            <h4>Result:</h4>
+                            <div id="getOutput" class="list-group">
+                                No Result
+                            </div>
+                        </div>
+                        <footer class="panel-footer">
+                            <input type="submit" class="btn btn-primary" value="Send" />
+                            <input type="reset" class="resetExample btn btn-danger" value="Reset" />
+                        </footer>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Native Ajax Api Example
+    </footer>
 </body>
 </html>

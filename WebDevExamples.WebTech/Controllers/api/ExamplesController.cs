@@ -5,13 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace WebDevExamples.ServerWebTech.Controllers.api
+namespace WebDevExamples.WebTech.Controllers.api
 {
     public class ExamplesController : ApiController
     {
         public List<string> Get()
         {
-            return "This is an example of an web api controller".Split(' ').ToList();
+            return "This is an example of a web api controller.".Split(' ').ToList();
         }
 
         public List<string> Post(string text)
