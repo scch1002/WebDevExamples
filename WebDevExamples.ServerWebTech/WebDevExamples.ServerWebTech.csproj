@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CFCFE09A-B6BF-40B7-A172-C74303DB14B0}</ProjectGuid>
+    <ProjectGuid>{F8B17658-FC05-4AC4-8C26-ABD2FBF697BB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebDevExamples.BrowserTech</RootNamespace>
-    <AssemblyName>WebDevExamples.BrowserTech</AssemblyName>
+    <RootNamespace>WebDevExamples.ServerWebTech</RootNamespace>
+    <AssemblyName>WebDevExamples.ServerWebTech</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -39,6 +39,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -48,6 +56,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -57,8 +73,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\webdevexamples - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\webdevexamples - Web Deploy.pubxml" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -67,35 +82,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ExampleCheckList.html" />
-    <Content Include="Html\Canvas\Canvas.html" />
-    <Content Include="Html\Canvas\Canvas.js" />
-    <Content Include="Html\DragAndDrop\DragAndDrop.html" />
-    <Content Include="Html\DragAndDrop\DragAndDrop.js" />
-    <Content Include="Html\Form\Form.css" />
-    <Content Include="Html\Form\Form.html" />
-    <Content Include="Html\HtmlElements\HtmlElements.html" />
-    <Content Include="Html\HtmlElements\HtmlElements.js" />
-    <Content Include="Javascript\ArrayApi\ArrayApi.html" />
-    <Content Include="Javascript\ArrayApi\ArrayApi.js" />
-    <Content Include="Javascript\GeoLocation\GeoLocation.html" />
-    <Content Include="Javascript\GeoLocation\GeoLocation.js" />
-    <Content Include="Javascript\NativeAjaxApi\NativeAjaxApi.html" />
-    <Content Include="Javascript\NativeAjaxApi\NativeAjaxApi.js" />
-    <Content Include="Javascript\WebStorage\WebStorage.html" />
-    <Content Include="Javascript\WebStorage\WebStorage.js" />
-    <Content Include="Javascript\WebStorage\WebStorage2.html" />
-    <Content Include="Javascript\WebWorker\N2WebWorker.js" />
-    <Content Include="Javascript\WebWorker\NNWebWorker.js" />
-    <Content Include="Javascript\WebWorker\WaitNMinutesWebWorker.js" />
-    <Content Include="Javascript\WebWorker\WebWorker.html" />
-    <Content Include="Javascript\WebWorker\WebWorker.js" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\ExamplesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -109,9 +109,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49402</DevelopmentServerPort>
+          <DevelopmentServerPort>50105</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49402/</IISUrl>
+          <IISUrl>http://localhost:50105/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
