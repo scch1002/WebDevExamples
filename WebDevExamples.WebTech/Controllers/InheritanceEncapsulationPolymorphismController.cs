@@ -14,7 +14,7 @@ namespace WebDevExamples.WebTech.Controllers
         {
             var exampleClasses = from type in Assembly.GetAssembly(typeof(IOutputMethod1And2))
                                     .GetTypes()
-                                    .Where(w => w.GetInterfaces().Any(w1 => w1.Name == "IOutputMethod1And2"))
+                                    .Where(w => w.GetInterfaces().Any(w1 => w1.Name == "IOutputMethod1And2") && !w.IsAbstract)
                                  select
                                      (IOutputMethod1And2)Activator.CreateInstance(type);
 

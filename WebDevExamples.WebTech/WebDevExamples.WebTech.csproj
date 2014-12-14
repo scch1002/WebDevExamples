@@ -184,11 +184,13 @@
     <Compile Include="Controllers\api\ExamplesController.cs" />
     <Compile Include="Controllers\InheritanceEncapsulationPolymorphismController.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\Base.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\BaseAbstract.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\ExampleClassOutput.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IndexVm.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IOutputMethod1.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IOutputMethod1And2.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IOutputMethod2.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubAbstractClass1.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass1.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass11.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass12.cs" />
