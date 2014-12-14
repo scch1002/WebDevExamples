@@ -134,8 +134,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\InheritanceEncapsulationPolymorphism\Index.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\InheritanceEncapsulationPolymorphism\ExampleClassOutputDisplay.cshtml" />
+    <Content Include="Views\InheritanceEncapsulationPolymorphism\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -183,9 +184,14 @@
     <Compile Include="Controllers\api\ExamplesController.cs" />
     <Compile Include="Controllers\InheritanceEncapsulationPolymorphismController.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\Base.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\ExampleClassOutput.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IndexVm.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IOutputMethod1.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IOutputMethod1And2.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\IOutputMethod2.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass1.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass11.cs" />
+    <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass12.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass2.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

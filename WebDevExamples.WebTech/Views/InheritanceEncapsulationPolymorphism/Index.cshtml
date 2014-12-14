@@ -5,94 +5,22 @@
     ViewBag.Title = "Inheritance, Encapsulation and Polymorphism Example";
 }
 <header>
-     <h1>
-         Inheritance, Encapsulation and Polymorphism Example
-     </h1>
+    <h1>
+        Inheritance, Encapsulation and Polymorphism Example
+    </h1>
 </header>
 <main class="container">
-    <div class="row">
-        <section class="col-md-6">
-            <header>
-                <h3>Base Class Output</h3>
-            </header>
-            <div class="list-group">
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Base Class Method One</h4>
-                    </div>
-                   @Model.BaseMethod1Output
-                </div>
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Base Class Method Two</h4>
-                    </div>
-                    @Model.BaseMethod2Output
-                </div>
-            </div>
-        </section>
-        <section class="col-md-6">
-            <header>
-                <h3>Sub Class One Of Base Class Output</h3>
-            </header>
-            <div class="list-group">
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Sub Class One Method One</h4>
-                    </div>
-                    @Model.SubClass1Method1Output
-                </div>
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Sub Class One Method Two</h4>
-                    </div>
-                    @Model.SubClass1Method2Output
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="row">
-        <section class="col-md-6">
-            <header>
-                <h3>Sub Class Two Of Base Class Output</h3>
-            </header>
-            <div class="list-group">
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Sub Class Two Method One</h4>
-                    </div>
-                    @Model.SubClass2Method1Output
-                </div>
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Sub Class Two Method Two</h4>
-                    </div>
-                    @Model.SubClass2Method2Output
-                </div>
-            </div>
-        </section>
-        <section class="col-md-6">
-            <header>
-                <h3>Sub Class One Of Sub Class One Output</h3>
-            </header>
-            <div class="list-group">
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Sub Class One Of SubClass One Method One</h4>
-                    </div>
-                    @Model.SubClass11Method1Output
-                </div>
-                <div class="list-group-item">
-                    <div class="list-group-item-heading">
-                        <h4>Sub Class One Of SubClass One Method Two</h4>
-                    </div>
-                    @Model.SubClass11Method2Output
-                </div>
-            </div>
-        </section>
-    </div>
+    @for (var count = 0; count < Model.ExampleClassOutputs.Count; count += 2)
+    {
+        <div class="row">
+            @Html.Partial("~/Views/InheritanceEncapsulationPolymorphism/ExampleClassOutputDisplay.cshtml", Model.ExampleClassOutputs[count])
+            @if (!(count % 2 == 0 && count == Model.ExampleClassOutputs.Count - 1))
+            {
+                @Html.Partial("~/Views/InheritanceEncapsulationPolymorphism/ExampleClassOutputDisplay.cshtml", Model.ExampleClassOutputs[count + 1])
+            }
+        </div>
+    }
 </main>
 <footer>
     Inheritance, Encapsulation and Polymorphism Example
 </footer>
-
-

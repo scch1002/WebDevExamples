@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using WebDevExamples.WebTech.CSharp.InheritanceEncapsulationPolymorphism;
@@ -11,22 +12,27 @@ namespace WebDevExamples.WebTech.Controllers
     {
         public ActionResult Index()
         {
-            var exampleBase = new Base();
-            var exampleSubClass1 = new SubClass1();
-            var exampleSubClass2 = new SubClass2();
-            var exampleSubClass11 = new SubClass11();
+            var exampleClasses = from type in Assembly.GetAssembly(typeof(IOutputMethod1And2))
+                                    .GetTypes()
+                                    .Where(w => w.GetInterfaces().Any(w1 => w1.Name == "IOutputMethod1And2"))
+                                 select
+                                     (IOutputMethod1And2)Activator.CreateInstance(type);
 
-            return View(new IndexVm
-                {
-                    BaseMethod1Output = exampleBase.Method(),
-                    BaseMethod2Output = exampleBase.Method("Example"),
-                    SubClass1Method1Output = exampleSubClass1.Method(),
-                    SubClass1Method2Output = exampleSubClass1.Method("Example"),
-                    SubClass2Method1Output = exampleSubClass2.Method(),
-                    SubClass2Method2Output = exampleSubClass2.Method("Example"),
-                    SubClass11Method1Output = exampleSubClass11.Method(),
-                    SubClass11Method2Output = exampleSubClass11.Method("Example")
-                });
+            return View(new IndexVm {
+                ExampleClassOutputs = ProcessExampleClasses(exampleClasses.ToList())
+            });
         }
+
+        private IList<ExampleClassOutput> ProcessExampleClasses(IList<IOutputMethod1And2> exampleClasses)
+        {
+            return (from exampleProcess in exampleClasses
+                         select
+                             new ExampleClassOutput
+                             {
+                                 ClassName = exampleProcess.GetType().Name,
+                                 Method1 = exampleProcess.Method(),
+                                 Method2 = exampleProcess.Method("Example")
+                             }).ToList();
+        } 
 	}
 }

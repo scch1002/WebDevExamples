@@ -5,8 +5,10 @@ using System.Web;
 
 namespace WebDevExamples.WebTech.CSharp.InheritanceEncapsulationPolymorphism
 {
-    public class IndexVm
+    public class ExampleClassOutput
     {
-        public IList<ExampleClassOutput> ExampleClassOutputs { get; set; }
+        public string ClassName { get; set; }
+        public int Method1 { get; set; }
+        public string Method2 { get; set; }
     }
 }

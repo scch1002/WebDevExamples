@@ -5,16 +5,16 @@ using System.Web;
 
 namespace WebDevExamples.WebTech.CSharp.InheritanceEncapsulationPolymorphism
 {
-    public class Base : IOutputMethod1And2
+    public class SubClass12 : SubClass1
     {
-        public virtual int Method()
+        public new int Method()
         {
             return 1;
         }
 
-        public virtual string Method(string example)
+        public new string Method(string example)
         {
-            return example;
+            return "Example";
         }
     }
 }
