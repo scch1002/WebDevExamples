@@ -12,8 +12,10 @@ webDevExamples.javascript.nativeAjaxApi = webDevExamples.javascript.nativeAjaxAp
         return div;
     }
 
-    nativeAjaxApi.exampleWebService = function (action, text, ajaxProcessFunction) {
+    nativeAjaxApi.exampleWebService = function (action, container, ajaxProcessFunction) {
         var request = new XMLHttpRequest();
+        request.open(action, '../../api/Examples');
+        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         request.onreadystatechange = function () {
             try {
                 if (request.readyState === 4) {
@@ -29,9 +31,7 @@ webDevExamples.javascript.nativeAjaxApi = webDevExamples.javascript.nativeAjaxAp
                 alert('There was an exception during the request.');
             }
         };
-        request.open(action, '../../api/Examples');
-        request.responseType = "json";
-        request.send(text);
+        request.send(JSON.stringify(container));
     }
 
     nativeAjaxApi.processExampleRequest = function(event, action, text) {

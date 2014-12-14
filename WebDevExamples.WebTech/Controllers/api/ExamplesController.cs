@@ -14,19 +14,19 @@ namespace WebDevExamples.WebTech.Controllers.api
             return "This is an example of a web api controller.".Split(' ').ToList();
         }
 
-        public List<string> Post(string text)
+        public List<string> Post([FromBody]string text)
         {
             return text.Split(' ').ToList();
         }
 
-        public List<string> Put(string text)
+        public List<string> Put([FromBody]string text)
         {
             return text.Split(' ').Select(s => "{" + s + "}").ToList();
         }
 
-        public string Delete(string text)
+        public List<string> Delete([FromBody]string text)
         {
-            return string.Join("}{", text.Split(' '));
+            return new List<string> { string.Join("}{", text.Split(' ')) };
         }
     }
 }
