@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebDevExamples.WebTech.CSharp.InheritanceEncapsulationPolymorphism
 {
-    public interface IOutputMethod1And2 : IOutputMethod1, IOutputMethod2
+    internal interface IOutputMethod1And2 : IOutputMethod1, IOutputMethod2
     {
     }
 }
