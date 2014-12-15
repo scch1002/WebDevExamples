@@ -137,6 +137,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\InheritanceEncapsulationPolymorphism\ExampleClassOutputDisplay.cshtml" />
     <Content Include="Views\InheritanceEncapsulationPolymorphism\Index.cshtml" />
+    <Content Include="Views\Generics\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -182,7 +183,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\api\ExamplesController.cs" />
+    <Compile Include="Controllers\GenericsController.cs" />
     <Compile Include="Controllers\InheritanceEncapsulationPolymorphismController.cs" />
+    <Compile Include="CSharp\Generics\IndexVm.cs" />
+    <Compile Include="CSharp\Generics\IProcessTask.cs" />
+    <Compile Include="CSharp\Generics\StringConcatTask.cs" />
+    <Compile Include="CSharp\Generics\SumIntegerTask.cs" />
+    <Compile Include="CSharp\Generics\TaskList.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\Base.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\BaseAbstract.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\ExampleClassOutput.cs" />
