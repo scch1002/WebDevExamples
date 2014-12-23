@@ -21,14 +21,17 @@ namespace WebDevExamples.WebTech.Controllers
         }
         
         [HttpPost]
-        public ActionResult Index(List<string> ConcactInput, List<int> SumInput)
+        public ActionResult Index(List<string> ConcatInput, List<int> SumInput)
         {
+            ConcatInput = ConcatInput ?? new List<string>();
+            SumInput = SumInput ?? new List<int>();
+
             var concatList = new TaskList<StringConcatTask>();
             var sumList = new TaskList<SumIntegerTask>();
             
             concatList.Add(new StringConcatTask
                             {
-                                StringList = ConcactInput
+                                StringList = ConcatInput
                             });
 
             sumList.Add(new SumIntegerTask
@@ -40,7 +43,7 @@ namespace WebDevExamples.WebTech.Controllers
             sumList.PerformListTasks();
 
             return View(new IndexVm {
-                    ConcatInput = ConcactInput,
+                    ConcatInput = ConcatInput,
                     SumInput = SumInput,
                     ConcatResult = concatList[0].ConcatResult, 
                     SumResult = sumList[0].SumResult
