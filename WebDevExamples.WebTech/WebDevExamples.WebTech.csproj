@@ -139,7 +139,6 @@
     <Content Include="Views\InheritanceEncapsulationPolymorphism\ExampleClassOutputDisplay.cshtml" />
     <Content Include="Views\InheritanceEncapsulationPolymorphism\Index.cshtml" />
     <Content Include="Views\Generics\Index.cshtml" />
-    <Content Include="Views\Generics\GenericsInputList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
