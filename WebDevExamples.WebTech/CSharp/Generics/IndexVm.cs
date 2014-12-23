@@ -7,8 +7,12 @@ namespace WebDevExamples.WebTech.CSharp.Generics
 {
     public class IndexVm
     {
-        public List<string> ConcatResults { get; set; }
+        public List<string> ConcatInput { get; set; }
 
-        public List<int> SumResults { get; set; }
+        public List<int> SumInput { get; set; }
+
+        public string ConcatResult { get; set; }
+
+        public int SumResult { get; set; }
     }
 }

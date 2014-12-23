@@ -11,36 +11,39 @@ namespace WebDevExamples.WebTech.Controllers
     {
         public ActionResult Index()
         {
-            return View(new IndexVm());
+            return View(new IndexVm
+            {
+                ConcatInput = new List<string>(),
+                SumInput = new List<int>(),
+                ConcatResult = string.Empty,
+                SumResult = 0
+            });
         }
-
-
+        
         [HttpPost]
-        public ActionResult Index(List<List<string>> ConcatStrings, List<List<int>> SumNumbers)
+        public ActionResult Index(List<string> ConcactInput, List<int> SumInput)
         {
             var concatList = new TaskList<StringConcatTask>();
             var sumList = new TaskList<SumIntegerTask>();
             
-            concatList.AddRange(from concat in ConcatStrings
-                              select
-                                new StringConcatTask
-                                {
-                                    StringList = concat
-                                });
+            concatList.Add(new StringConcatTask
+                            {
+                                StringList = ConcactInput
+                            });
 
-            sumList.AddRange(from sum in SumNumbers
-                          select
-                              new SumIntegerTask
-                              {
-                                  IntegerList = sum
-                              });
+            sumList.Add(new SumIntegerTask
+                        {
+                            IntegerList = SumInput
+                        });
 
             concatList.PerformListTasks();
             sumList.PerformListTasks();
 
             return View(new IndexVm {
-                    ConcatResults = (from concat in concatList select concat.ConcatResult).ToList(),
-                    SumResults = (from sum in sumList select sum.SumResult).ToList()
+                    ConcatInput = ConcactInput,
+                    SumInput = SumInput,
+                    ConcatResult = concatList[0].ConcatResult, 
+                    SumResult = sumList[0].SumResult
                 });
         }
 	}

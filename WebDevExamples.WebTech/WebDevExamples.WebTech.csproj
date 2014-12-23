@@ -116,6 +116,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CSharp\Generics\Index.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
@@ -138,6 +139,7 @@
     <Content Include="Views\InheritanceEncapsulationPolymorphism\ExampleClassOutputDisplay.cshtml" />
     <Content Include="Views\InheritanceEncapsulationPolymorphism\Index.cshtml" />
     <Content Include="Views\Generics\Index.cshtml" />
+    <Content Include="Views\Generics\GenericsInputList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -225,7 +227,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49402</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49402/</IISUrl>
+          <IISUrl>http://localhost:49404/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

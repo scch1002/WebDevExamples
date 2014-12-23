@@ -1,31 +1,104 @@
 ﻿@model WebDevExamples.WebTech.CSharp.Generics.IndexVm
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Generics Example";
 }
 
 <header>
     <h1>Generics Example</h1>
 </header>
 <main class="container">
+    @using(Html.BeginForm())
+    {
     <div class="row">
         <section class="col-md-6">
-            @using(Html.BeginForm()) 
-            {
-                <table>
-
-                </table>
-            }
+            <header>
+                <h3>String List Example</h3> 
+            </header>   
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            String Number
+                        </th>
+                        <th>
+                            String Value
+                        </th>
+                        <th>
+                            Options
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var count = 0; count < Model.ConcatInput.Count; count++)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                @Model.ConcatInput[count]
+                            </td>
+                            <td>
+                                <input type="button" value="Delete" class="btn btn-danger delete_option" />
+                            </td>
+                            @Html.Hidden("ConcatInput", Model.ConcatInput[count])
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </section>
         <section class="col-md-6">
-            @using (Html.BeginForm())
-            {
-
-            }
+            <header>
+                <h3>Integer List Example</h3>
+            </header>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Integer Number
+                        </th>
+                        <th>
+                            Integer Value
+                        </th>
+                        <th>
+                            Options
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var count = 0; count < Model.SumInput.Count; count++)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                @Model.SumInput[count]
+                            </td>
+                            <td>
+                                <input type="button" value="Delete" class="btn btn-danger delete_option" />
+                            </td>
+                            @Html.Hidden("SumInput", Model.SumInput[count])
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </section>
     </div>
+    <div class="row">
+        <section class="col-md-6">
+            <input type="submit" value="Process" class="btn btn-success"/>
+            <input type="button" value="Reset" class="btn btn-danger"/>
+        </section>
+    </div>
+    }
 </main>
 <footer>
     Generics Example
 </footer>
+
+@section scripts {
+    <script src="~/CSharp/Generics/Index.js"></script>
+}
 
