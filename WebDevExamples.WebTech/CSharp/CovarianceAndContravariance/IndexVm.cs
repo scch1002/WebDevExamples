@@ -8,6 +8,7 @@ namespace WebDevExamples.WebTech.CSharp.CovarianceAndContravariance
     public class IndexVm
     {
         public Base[] CovarianceResult { get; set; }
+        public Base ContravarianceInput { get; set; }
         public bool ContravarianceResult { get; set; }
     }
 }

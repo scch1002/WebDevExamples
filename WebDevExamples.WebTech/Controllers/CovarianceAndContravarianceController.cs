@@ -25,6 +25,7 @@ namespace WebDevExamples.WebTech.Controllers
             return View(new IndexVm
             {
                 CovarianceResult = example.CovariantMethod(),
+                ContravarianceInput = contravariant,
                 ContravarianceResult = example.ContravariantMethod(new SubSubClass { Value = "Test" })
             });
         }
