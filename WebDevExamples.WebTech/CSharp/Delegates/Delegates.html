@@ -10,7 +10,8 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="../../Scripts/jquery.signalR-2.0.0.min.js"></script>
+    <script src="../../Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>
     <script src="Delegates.js"></script>
 </head>
 <body>
@@ -23,9 +24,10 @@
                 <header>
                     <h2>Basic Delegate</h2>
                 </header>
-                <div id="basicDelegate">
+                <div id="basicDelegate" class="list-group">
                     
                 </div>
+                <button id="BasicDelegateButton" class="btn btn-success">Press for result</button>
             </div>
             <div class="col-md-6">
                 <header>
