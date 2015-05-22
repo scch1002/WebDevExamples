@@ -12,18 +12,17 @@ webDevExamples.CSharp.Delegates = webDevExamples.CSharp.Delegates || {};
         return div;
     };
 
-    delegates.hello = function (hello) {
+    delegates.simpleDelegateExample = function (hello) {
         $('#basicDelegate').append(delegates.constructListItem(hello));
     };
 
     delegates.init = function () {
         var broadcaster = $.connection.delegatesHub
-        broadcaster.client.hello = delegates.hello;
+        broadcaster.client.simpleDelegateExample = delegates.simpleDelegateExample;
         $.connection.hub.start().done(function () {
             $('#BasicDelegateButton').click(function () {
-                broadcaster.server.hello();
+                broadcaster.server.simpleDelegateExample();
             });
-            broadcaster.server.hello();
         });
     };
 

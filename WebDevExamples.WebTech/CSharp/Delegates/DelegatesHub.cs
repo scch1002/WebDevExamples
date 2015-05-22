@@ -8,9 +8,18 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
 {
     public class DelegatesHub : Hub
     {
-        public void Hello()
+        private delegate string SimpleDelegate(string message);
+
+        public void SimpleDelegateExample()
         {
-            Clients.All.hello("Hello There");
+            SimpleDelegate simpleDelegateExample = (message) => message + " example.";
+
+            Clients.All.simpleDelegateExample(simpleDelegateExample("Simple delegate"));
+        }
+
+        public void AsyncDelegateExample()
+        {
+
         }
     }
 }
