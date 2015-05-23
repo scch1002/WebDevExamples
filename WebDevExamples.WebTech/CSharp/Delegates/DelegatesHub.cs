@@ -8,18 +8,27 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
 {
     public class DelegatesHub : Hub
     {
-        private delegate string SimpleDelegate(string message);
+        private delegate string ExampleDelegate(string message);
 
         public void SimpleDelegateExample()
         {
-            SimpleDelegate simpleDelegateExample = (message) => message + " example.";
+            ExampleDelegate simpleDelegateExample = (message) => message + " example.";
 
             Clients.All.simpleDelegateExample(simpleDelegateExample("Simple delegate"));
         }
 
         public void AsyncDelegateExample()
         {
+            ExampleDelegate asyncDelegate = (message) => 
+                {
+                    for(var count = 0; count < 5; count++) {
+                        Clients.All.asyncDelegateExample("This is message " + count + ".");
+                    }
+                    
+                    return "The async method has finished." + message;
+                };
 
+            var result = asyncDelegate.BeginInvoke("")
         }
     }
 }
