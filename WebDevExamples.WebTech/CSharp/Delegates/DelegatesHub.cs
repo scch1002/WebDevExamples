@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using System.Runtime.Remoting.Messaging;
 
 namespace WebDevExamples.WebTech.CSharp.Delegates
 {
@@ -14,7 +15,7 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
         {
             ExampleDelegate simpleDelegateExample = (message) => message + " example.";
 
-            Clients.All.simpleDelegateExample(simpleDelegateExample("Simple delegate"));
+            Clients.Caller.simpleDelegateExample(simpleDelegateExample("Simple delegate"));
         }
 
         public void AsyncDelegateExample()
@@ -22,13 +23,23 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
             ExampleDelegate asyncDelegate = (message) => 
                 {
                     for(var count = 0; count < 5; count++) {
-                        Clients.All.asyncDelegateExample("This is message " + count + ".");
+                        Clients.Caller.asyncDelegateExample("This is message " + count + ".");
                     }
                     
                     return "The async method has finished." + message;
                 };
 
-            var result = asyncDelegate.BeginInvoke("")
+            asyncDelegate.BeginInvoke(" Hello There.", AsyncCallBackExample, null);
+        }
+
+        private void AsyncCallBackExample(IAsyncResult ar)
+        {
+            Clients.Caller.asyncDelegateExample("The callback as been called");
+            
+            AsyncResult result = (AsyncResult)ar;
+            var caller = (ExampleDelegate)result.AsyncDelegate;
+
+            Clients.Caller.asyncDelegateExample(caller.EndInvoke(ar));
         }
     }
 }

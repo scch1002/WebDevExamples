@@ -15,17 +15,18 @@
     <script src="Delegates.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Delegate Example</h1>
-    </header>
     <main class="container">
+        <header>
+            <h1>Delegate Example</h1>
+        </header>
         <div class="row">
+            
             <div class="col-md-6">
                 <header>
                     <h2>Simple Delegate</h2>
                 </header>
                 <div id="basicDelegate" class="list-group">
-                    
+
                 </div>
                 <button id="BasicDelegateButton" class="btn btn-success">Press for result</button>
             </div>
@@ -33,9 +34,10 @@
                 <header>
                     <h2>Async Delegate</h2>
                 </header>
-                <div id="canvasContainer" style="height:500px; width:500px;">
-                    <canvas id="canvasExample"></canvas>
+                <div id="asyncDelegate" class="list-group">
+
                 </div>
+                <button id="asyncDelegateButton" class="btn btn-success">Press for result</button>
             </div>
         </div>
         <div class="row">
@@ -56,9 +58,9 @@
                 </div>
             </div>
         </div>
+        <footer>
+            Canvas Example
+        </footer>
     </main>
-    <footer>
-        Canvas Example
-    </footer>
 </body>
 </html>
