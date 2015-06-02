@@ -41,5 +41,32 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
 
             Clients.Caller.asyncDelegateExample(caller.EndInvoke(ar));
         }
+
+        public void MulticastDelegateExample()
+        {
+            ExampleDelegate multicastDelegate1 = (message) => 
+            {
+                return "Delegate 1: " + message;  
+            };
+
+            ExampleDelegate multicastDelegate2 = (message) =>
+            {
+                return "Delegate 2: " + message;
+            };
+
+            ExampleDelegate multicastDelegate3 = (message) =>
+            {
+                return "Delegate 3: " + message;
+            };
+
+            ExampleDelegate combineDelegates = multicastDelegate1;
+
+            combineDelegates += multicastDelegate2;
+            combineDelegates += multicastDelegate3;
+
+            var t = combineDelegates("Multicast Delegate Example");
+
+            Clients.Caller.asyncDelegateExample("The end of the multicast delegate");
+        }
     }
 }
