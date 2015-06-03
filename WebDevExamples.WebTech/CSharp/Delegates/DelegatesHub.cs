@@ -10,6 +10,7 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
     public class DelegatesHub : Hub
     {
         private delegate string ExampleDelegate(string message);
+        private delegate void MulticastExample(string message);
 
         public void SimpleDelegateExample()
         {
@@ -34,7 +35,7 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
 
         private void AsyncCallBackExample(IAsyncResult ar)
         {
-            Clients.Caller.asyncDelegateExample("The callback as been called");
+            Clients.Caller.asyncDelegateExample("The callback as been called.");
             
             AsyncResult result = (AsyncResult)ar;
             var caller = (ExampleDelegate)result.AsyncDelegate;
@@ -44,29 +45,29 @@ namespace WebDevExamples.WebTech.CSharp.Delegates
 
         public void MulticastDelegateExample()
         {
-            ExampleDelegate multicastDelegate1 = (message) => 
+            MulticastExample multicastDelegate1 = (message) => 
             {
-                return "Delegate 1: " + message;  
+                Clients.Caller.multicastDelegateExample("Delegate 1: " + message);  
             };
 
-            ExampleDelegate multicastDelegate2 = (message) =>
+            MulticastExample multicastDelegate2 = (message) =>
             {
-                return "Delegate 2: " + message;
+                Clients.Caller.multicastDelegateExample("Delegate 2: " + message);
             };
 
-            ExampleDelegate multicastDelegate3 = (message) =>
+            MulticastExample multicastDelegate3 = (message) =>
             {
-                return "Delegate 3: " + message;
+                Clients.Caller.multicastDelegateExample("Delegate 3: " + message);
             };
 
-            ExampleDelegate combineDelegates = multicastDelegate1;
+            MulticastExample combineDelegates = multicastDelegate1;
 
             combineDelegates += multicastDelegate2;
             combineDelegates += multicastDelegate3;
 
-            var t = combineDelegates("Multicast Delegate Example");
+            combineDelegates("Multicast Delegate Example");
 
-            Clients.Caller.asyncDelegateExample("The end of the multicast delegate");
+            Clients.Caller.multicastDelegateExample("The end of the multicast delegate.");
         }
     }
 }
