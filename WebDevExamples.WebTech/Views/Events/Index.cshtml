@@ -1,0 +1,47 @@
+﻿@model WebDevExamples.WebTech.CSharp.Events.EventExamplesResult
+
+@{
+    ViewBag.Title = "Event Examples";
+}
+
+<header>
+    <h1>Event Examples</h1>
+</header>
+<main class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @using(Html.BeginForm("Index", "Events", FormMethod.Post, new { @class= "form-inline" })) 
+            {
+                <div class="form-group">
+                    <label for="Name">Enter Name:</label>
+                    <input type="text" id="Name" name="Name" class="form-control" />
+                </div>
+                
+                <input type="submit" value="Submit" class="btn btn-success" />
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Results</h2>
+            <div class="list-group">
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">Simple Event</h4>
+                    <p class="list-group-item-text">@(Model.SimpleEvent ?? string.Empty)</p>
+                </div>
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">Custom Event</h4>
+                    <p class="list-group-item-text">@(Model.CustomEvent ?? string.Empty)</p>
+                </div>
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">Custom Accessors</h4>
+                    <p class="list-group-item-text">@(Model.CustomAccessors ?? string.Empty)</p>
+                </div>
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">Event Handler and Event Args</h4>
+                    <p class="list-group-item-text">@(Model.EventHandlerEventArgs ?? string.Empty)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

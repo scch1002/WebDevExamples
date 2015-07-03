@@ -166,6 +166,7 @@
     <Content Include="Views\InheritanceEncapsulationPolymorphism\Index.cshtml" />
     <Content Include="Views\Generics\Index.cshtml" />
     <Content Include="Views\CovarianceAndContravariance\Index.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -213,6 +214,7 @@
     <Compile Include="Controllers\api\ExamplesController.cs" />
     <Compile Include="Controllers\CovarianceAndContravarianceController.cs" />
     <Compile Include="Controllers\DelegatesController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GenericsController.cs" />
     <Compile Include="Controllers\InheritanceEncapsulationPolymorphismController.cs" />
     <Compile Include="CSharp\CovarianceAndContravariance\Base.cs" />
@@ -222,6 +224,9 @@
     <Compile Include="CSharp\CovarianceAndContravariance\SubClass.cs" />
     <Compile Include="CSharp\CovarianceAndContravariance\SubSubClass.cs" />
     <Compile Include="CSharp\Delegates\DelegatesHub.cs" />
+    <Compile Include="CSharp\Events\EventExamples.cs" />
+    <Compile Include="CSharp\Events\EventExamplesResult.cs" />
+    <Compile Include="CSharp\Events\ExampleEventArgs.cs" />
     <Compile Include="CSharp\Generics\IndexVm.cs" />
     <Compile Include="CSharp\Generics\IProcessTask.cs" />
     <Compile Include="CSharp\Generics\StringConcatTask.cs" />
