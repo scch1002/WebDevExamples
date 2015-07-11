@@ -141,6 +141,8 @@
     <Content Include="CSharp\Delegates\Delegates.html" />
     <Content Include="CSharp\Delegates\Delegates.js" />
     <Content Include="CSharp\Generics\Index.js" />
+    <Content Include="CSharp\ThreadingAndSynchronization\ThreadingAndSynchronization.html" />
+    <Content Include="CSharp\ThreadingAndSynchronization\ThreadingAndSynchronization.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
@@ -244,6 +246,7 @@
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass11.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass12.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass2.cs" />
+    <Compile Include="CSharp\ThreadingAndSynchronization\ThreadingAndSynchronizationHub.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,7 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Delegates\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
