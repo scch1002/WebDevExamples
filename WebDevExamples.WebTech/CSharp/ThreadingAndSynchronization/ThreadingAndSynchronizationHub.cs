@@ -94,5 +94,76 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             Clients.Caller.ThreadLocalTExample("Thread local T result: " + storageT.Value);
             Clients.Caller.ThreadLocalTExample("Thread local T example ended.");
         }
+
+        public void ThreadLocalStorageExample()
+        {
+            Thread.AllocateNamedDataSlot("Value");
+            
+            var threadLocalStorage1 = new Thread(() =>
+            {
+                var slotThread1 = Thread.GetNamedDataSlot("Value");
+                Thread.SetData(slotThread1, 0);
+                for (var count = 0; count < 5; count++)
+                {
+                    Thread.Sleep(2000);
+                    var value = (int)Thread.GetData(slotThread1);
+                    Clients.Caller.ThreadLocalStorageExample("Thread local storage 1: " + value);
+                    value++;
+                    Thread.SetData(slotThread1, value);
+                }
+            });
+
+            var threadLocalStorage2 = new Thread(() =>
+            {
+                var slotThread2 = Thread.GetNamedDataSlot("Value");
+                Thread.SetData(slotThread2, 0);
+                for (var count = 0; count < 5; count++)
+                {
+                    Thread.Sleep(2000);
+                    var value = (int)Thread.GetData(slotThread2);
+                    Clients.Caller.ThreadLocalStorageExample("Thread local storage 2: " + value);
+                    value++;
+                    Thread.SetData(slotThread2, value);
+                }
+            });
+
+            Clients.Caller.ThreadLocalStorageExample("Thread local storage example started.");
+            threadLocalStorage1.Start();
+            Thread.Sleep(12000);
+            threadLocalStorage2.Start();
+            Thread.Sleep(12000);
+            var mainThreadSlot = Thread.GetNamedDataSlot("Value");
+            Thread.SetData(mainThreadSlot, 0);
+            var mainValue = (int)Thread.GetData(mainThreadSlot);
+            Clients.Caller.ThreadLocalStorageExample("Thread local storage result: " + mainValue);
+            Clients.Caller.ThreadLocalStorageExample("Thread local storage example ended.");
+        }
+
+        public void ThreadPoolQueueWorkItemExample()
+        {
+            Action<string> sendMessage = (message) =>
+            {
+                Clients.Caller.ThreadPoolQueueWorkItemExample(message);
+            };
+
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                RepeatMessageFiveTimes("Marco", sendMessage);
+            });
+
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                RepeatMessageFiveTimes("Polo", sendMessage);
+            });
+        }
+
+        private void RepeatMessageFiveTimes(string message, Action<string> signalRMethod)
+        {
+            for (var count = 0; count < 5; count++)
+            {
+                Thread.Sleep(2000);
+                signalRMethod(message);
+            }
+        }
     }
 }

@@ -24,11 +24,21 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
         $('#threadLocalTExample').append(threadingAndSynchronization.constructListItem(response));
     };
 
+    threadingAndSynchronization.threadLocalStorageExample = function (response) {
+        $('#threadLocalStorageExample').append(threadingAndSynchronization.constructListItem(response));
+    };
+
+    threadingAndSynchronization.threadPoolQueueWorkItemExample = function (response) {
+        $('#threadPoolQueueWorkItemExample').append(threadingAndSynchronization.constructListItem(response));
+    };
+
     threadingAndSynchronization.init = function () {
-        var broadcaster = $.connection.threadingAndSynchronizationHub
+        var broadcaster = $.connection.threadingAndSynchronizationHub;
         broadcaster.client.simpleThreadingExample = threadingAndSynchronization.simpleThreadingExample;
         broadcaster.client.threadStaticExample = threadingAndSynchronization.threadStaticExample;
         broadcaster.client.threadLocalTExample = threadingAndSynchronization.threadLocalTExample;
+        broadcaster.client.threadLocalStorageExample = threadingAndSynchronization.threadLocalStorageExample;
+        broadcaster.client.threadPoolQueueWorkItemExample = threadingAndSynchronization.threadPoolQueueWorkItemExample;
         $.connection.hub.start().done(function () {
             $('#simpleThreadingExampleButton').click(function () {
                 broadcaster.server.simpleThreadingExample();
@@ -38,6 +48,12 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
             });
             $('#threadLocalTExampleButton').click(function () {
                 broadcaster.server.threadLocalTExample();
+            });
+            $('#threadLocalStorageExampleButton').click(function () {
+                broadcaster.server.threadLocalStorageExample();
+            });
+            $('#threadPoolQueueWorkItemExampleButton').click(function () {
+                broadcaster.server.threadPoolQueueWorkItemExample();
             });
         });
     };
