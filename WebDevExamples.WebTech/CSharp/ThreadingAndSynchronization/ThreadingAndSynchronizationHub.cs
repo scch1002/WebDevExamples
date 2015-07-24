@@ -157,6 +157,48 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             });
         }
 
+        public void ThreadSynchronizationUsingMonitorExample()
+        {
+            var lockObject = new object();
+            var count = 0;
+            var iterationMax = 100000000;
+
+            var add = new Thread(() =>
+            {
+                for (var iterate = 0; iterate < iterationMax; iterate++)
+                {
+                    lock (lockObject)
+                    {
+                        count++;
+                    }
+                }
+            });
+
+            var subtract = new Thread(() =>
+            {
+                for (var iterate = 0; iterate < iterationMax; iterate++)
+                {
+                    lock (lockObject)
+                    {
+                        count--;
+                    }
+                }
+            });
+
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example start.");
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Starting value: " + count.ToString("N0"));
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
+
+            add.Start();
+            subtract.Start();
+
+            subtract.Join();
+            add.Join();
+
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example end.");
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Ending value: " + count.ToString("N0"));
+        }
+
         private void RepeatMessageFiveTimes(string message, Action<string> signalRMethod)
         {
             for (var count = 0; count < 5; count++)
