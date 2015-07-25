@@ -161,7 +161,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
         {
             var lockObject = new object();
             var count = 0;
-            var iterationMax = 100000000;
+            var iterationMax = 10000000;
 
             var add = new Thread(() =>
             {
@@ -185,7 +185,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
                 }
             });
 
-            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example start. Time: " + DateTime.Now.ToShortTimeString());
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example start. Time: " + DateTime.Now.ToString());
             Clients.Caller.ThreadSynchronizationUsingMonitorExample("Starting value: " + count.ToString("N0"));
             Clients.Caller.ThreadSynchronizationUsingMonitorExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
 
@@ -195,7 +195,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             subtract.Join();
             add.Join();
 
-            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example end. Time: " + DateTime.Now.ToShortTimeString());
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example end. Time: " + DateTime.Now.ToString());
             Clients.Caller.ThreadSynchronizationUsingMonitorExample("Ending value: " + count.ToString("N0"));
         }
 
@@ -203,7 +203,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
         {
             var exampleMutex = new Mutex();
             var count = 0;
-            var iterationMax = 100000000;
+            var iterationMax = 10000000;
 
             var add = new Thread(() =>
             {
@@ -225,7 +225,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
                 }
             });
 
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example start. Time: " + DateTime.Now.ToShortTimeString());
+            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example start. Time: " + DateTime.Now.ToString());
             Clients.Caller.ThreadSynchronizationUsingMutexExample("Starting value: " + count.ToString("N0"));
             Clients.Caller.ThreadSynchronizationUsingMutexExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
 
@@ -235,7 +235,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             subtract.Join();
             add.Join();
 
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example end. " + DateTime.Now.ToShortTimeString());
+            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example end. " + DateTime.Now.ToString());
             Clients.Caller.ThreadSynchronizationUsingMutexExample("Ending value: " + count.ToString("N0"));
         }
 
