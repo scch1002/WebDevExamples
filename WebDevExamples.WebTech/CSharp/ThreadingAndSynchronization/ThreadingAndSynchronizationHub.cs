@@ -185,7 +185,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
                 }
             });
 
-            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example start.");
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example start. Time: " + DateTime.Now.ToShortTimeString());
             Clients.Caller.ThreadSynchronizationUsingMonitorExample("Starting value: " + count.ToString("N0"));
             Clients.Caller.ThreadSynchronizationUsingMonitorExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
 
@@ -195,7 +195,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             subtract.Join();
             add.Join();
 
-            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example end.");
+            Clients.Caller.ThreadSynchronizationUsingMonitorExample("Monitor synchronization example end. Time: " + DateTime.Now.ToShortTimeString());
             Clients.Caller.ThreadSynchronizationUsingMonitorExample("Ending value: " + count.ToString("N0"));
         }
 
@@ -225,7 +225,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
                 }
             });
 
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example start.");
+            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example start. Time: " + DateTime.Now.ToShortTimeString());
             Clients.Caller.ThreadSynchronizationUsingMutexExample("Starting value: " + count.ToString("N0"));
             Clients.Caller.ThreadSynchronizationUsingMutexExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
 
@@ -235,7 +235,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             subtract.Join();
             add.Join();
 
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example end.");
+            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example end. " + DateTime.Now.ToShortTimeString());
             Clients.Caller.ThreadSynchronizationUsingMutexExample("Ending value: " + count.ToString("N0"));
         }
 
