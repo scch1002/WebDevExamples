@@ -201,42 +201,44 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
 
         public void ThreadSynchronizationUsingMutexExample()
         {
-            var exampleMutex = new Mutex();
-            var count = 0;
-            var iterationMax = 10000000;
-
-            var add = new Thread(() =>
+            using (var exampleMutex = new Mutex())
             {
-                for (var iterate = 0; iterate < iterationMax; iterate++)
+                var count = 0;
+                var iterationMax = 10000000;
+
+                var add = new Thread(() =>
                 {
-                    exampleMutex.WaitOne();
-                    count++;
-                    exampleMutex.ReleaseMutex();
-                }
-            });
+                    for (var iterate = 0; iterate < iterationMax; iterate++)
+                    {
+                        exampleMutex.WaitOne();
+                        count++;
+                        exampleMutex.ReleaseMutex();
+                    }
+                });
 
-            var subtract = new Thread(() =>
-            {
-                for (var iterate = 0; iterate < iterationMax; iterate++)
+                var subtract = new Thread(() =>
                 {
-                    exampleMutex.WaitOne();
-                    count--;
-                    exampleMutex.ReleaseMutex();
-                }
-            });
+                    for (var iterate = 0; iterate < iterationMax; iterate++)
+                    {
+                        exampleMutex.WaitOne();
+                        count--;
+                        exampleMutex.ReleaseMutex();
+                    }
+                });
 
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example start. Time: " + DateTime.Now.ToString());
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Starting value: " + count.ToString("N0"));
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
+                Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example start. Time: " + DateTime.Now.ToString());
+                Clients.Caller.ThreadSynchronizationUsingMutexExample("Starting value: " + count.ToString("N0"));
+                Clients.Caller.ThreadSynchronizationUsingMutexExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
 
-            add.Start();
-            subtract.Start();
+                add.Start();
+                subtract.Start();
 
-            subtract.Join();
-            add.Join();
+                subtract.Join();
+                add.Join();
 
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example end. " + DateTime.Now.ToString());
-            Clients.Caller.ThreadSynchronizationUsingMutexExample("Ending value: " + count.ToString("N0"));
+                Clients.Caller.ThreadSynchronizationUsingMutexExample("Mutex synchronization example end. " + DateTime.Now.ToString());
+                Clients.Caller.ThreadSynchronizationUsingMutexExample("Ending value: " + count.ToString("N0"));
+            }
         }
 
         private void RepeatMessageFiveTimes(string message, Action<string> signalRMethod)
