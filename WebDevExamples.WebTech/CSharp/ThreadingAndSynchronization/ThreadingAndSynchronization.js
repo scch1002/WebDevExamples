@@ -36,6 +36,10 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
         $('#threadSynchronizationUsingMonitorExample').append(threadingAndSynchronization.constructListItem(response));
     };
 
+    threadingAndSynchronization.threadSynchronizationUsingMutexExample = function (response) {
+        $('#threadSynchronizationUsingMutexExample').append(threadingAndSynchronization.constructListItem(response));
+    };
+
     threadingAndSynchronization.init = function () {
         var broadcaster = $.connection.threadingAndSynchronizationHub;
         broadcaster.client.simpleThreadingExample = threadingAndSynchronization.simpleThreadingExample;
@@ -44,6 +48,7 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
         broadcaster.client.threadLocalStorageExample = threadingAndSynchronization.threadLocalStorageExample;
         broadcaster.client.threadPoolQueueWorkItemExample = threadingAndSynchronization.threadPoolQueueWorkItemExample;
         broadcaster.client.threadSynchronizationUsingMonitorExample = threadingAndSynchronization.threadSynchronizationUsingMonitorExample;
+        broadcaster.client.threadSynchronizationUsingMutexExample = threadingAndSynchronization.threadSynchronizationUsingMutexExample;
         $.connection.hub.start().done(function () {
             $('#simpleThreadingExampleButton').click(function () {
                 broadcaster.server.simpleThreadingExample();
@@ -62,6 +67,9 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
             });
             $('#threadSynchronizationUsingMonitorExampleButton').click(function () {
                 broadcaster.server.threadSynchronizationUsingMonitorExample();
+            });
+            $('#threadSynchronizationUsingMutexExampleButton').click(function () {
+                broadcaster.server.threadSynchronizationUsingMutexExample();
             });
         });
     };
