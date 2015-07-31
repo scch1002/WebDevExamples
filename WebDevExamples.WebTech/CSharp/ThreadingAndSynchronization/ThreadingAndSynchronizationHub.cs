@@ -241,6 +241,48 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             }
         }
 
+        public void ThreadSynchronizationUsingSemaphoreExample()
+        {
+            using (var exampleSemaphore = new Semaphore(1, 1))
+            {
+                var count = 0;
+                var iterationMax = 10000000;
+
+                var add = new Thread(() =>
+                {
+                    for (var iterate = 0; iterate < iterationMax; iterate++)
+                    {
+                        exampleSemaphore.WaitOne();
+                        count++;
+                        exampleSemaphore.Release();
+                    }
+                });
+
+                var subtract = new Thread(() =>
+                {
+                    for (var iterate = 0; iterate < iterationMax; iterate++)
+                    {
+                        exampleSemaphore.WaitOne();
+                        count--;
+                        exampleSemaphore.Release();
+                    }
+                });
+
+                Clients.Caller.ThreadSynchronizationUsingSemaphoreExample("Semaphore synchronization example start. Time: " + DateTime.Now.ToString());
+                Clients.Caller.ThreadSynchronizationUsingSemaphoreExample("Starting value: " + count.ToString("N0"));
+                Clients.Caller.ThreadSynchronizationUsingSemaphoreExample("Adding and subtracting " + iterationMax.ToString("N0") + " from different threads.");
+
+                add.Start();
+                subtract.Start();
+
+                subtract.Join();
+                add.Join();
+
+                Clients.Caller.ThreadSynchronizationUsingSemaphoreExample("Semaphore synchronization example end. " + DateTime.Now.ToString());
+                Clients.Caller.ThreadSynchronizationUsingSemaphoreExample("Ending value: " + count.ToString("N0"));
+            }
+        }
+
         private void RepeatMessageFiveTimes(string message, Action<string> signalRMethod)
         {
             for (var count = 0; count < 5; count++)
