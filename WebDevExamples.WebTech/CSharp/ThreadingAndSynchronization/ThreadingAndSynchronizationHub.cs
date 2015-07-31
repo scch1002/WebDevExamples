@@ -161,7 +161,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
         {
             var lockObject = new object();
             var count = 0;
-            var iterationMax = 10000000;
+            var iterationMax = 100000;
 
             var add = new Thread(() =>
             {
@@ -204,7 +204,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             using (var exampleMutex = new Mutex())
             {
                 var count = 0;
-                var iterationMax = 10000000;
+                var iterationMax = 100000;
 
                 var add = new Thread(() =>
                 {
@@ -246,7 +246,7 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             using (var exampleSemaphore = new Semaphore(1, 1))
             {
                 var count = 0;
-                var iterationMax = 10000000;
+                var iterationMax = 100000;
 
                 var add = new Thread(() =>
                 {
