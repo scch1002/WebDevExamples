@@ -283,6 +283,76 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
             }
         }
 
+        public void ThreadSynchronizationUsingManualResetEventExample()
+        {
+            Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Thread synchonization example using ManualResetEvent example started");
+
+            var count = new int[] { 1, 2 };
+
+            using (var threadBegin = new CountdownEvent(count.Count() * 3))
+            using (var threadEnd = new CountdownEvent(count.Count() * 3))
+            using (var thread1lock = new ManualResetEvent(false))
+            using (var thread2lock = new ManualResetEvent(false))
+            using (var thread3lock = new ManualResetEvent(false))
+            {
+                count.Select(s => new Thread(() =>
+                {
+                    threadBegin.Signal();
+                    thread1lock.WaitOne();
+
+                    Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Set 1 thread " + s + ": Started");
+
+                    Thread.Sleep(10000);
+
+                    Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Set 1 thread " + s + ": Finished");
+                    threadEnd.Signal();
+                }))
+                .ToList()
+                .ForEach(f => f.Start());
+
+                count.Select(s => new Thread(() =>
+                {
+                    threadBegin.Signal();
+                    thread2lock.WaitOne();
+
+                    Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Set 2 thread " + s + ": Started");
+
+                    Thread.Sleep(5000);
+
+                    Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Set 2 thread " + s + ": Finished");
+                    threadEnd.Signal();
+                }))
+                .ToList()
+                .ForEach(f => f.Start());
+
+                count.Select(s => new Thread(() =>
+                {
+                    threadBegin.Signal();
+                    thread3lock.WaitOne();
+
+                    Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Set 3 thread " + s + ": Started");
+
+                    Thread.Sleep(500);
+
+                    Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Set 3 thread " + s + ": Finished");
+                    threadEnd.Signal();
+                }))
+                .ToList()
+                .ForEach(f => f.Start());
+
+                threadBegin.Wait();
+                thread1lock.Set();
+                Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Thread Set 1 Started.");
+                thread2lock.Set();
+                Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Thread Set 2 Started.");
+                thread3lock.Set();
+                Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Thread Set 3 Started.");
+                threadEnd.Wait();
+
+                Clients.Caller.ThreadSynchronizationUsingManualResetEventExample("Thread synchonization example using ManualResetEvent example ended");
+            }
+        }
+
         private void RepeatMessageFiveTimes(string message, Action<string> signalRMethod)
         {
             for (var count = 0; count < 5; count++)

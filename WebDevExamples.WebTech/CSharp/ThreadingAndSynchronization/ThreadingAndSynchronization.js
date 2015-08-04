@@ -44,6 +44,10 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
         $('#threadSynchronizationUsingSemaphoreExample').append(threadingAndSynchronization.constructListItem(response));
     };
 
+    threadingAndSynchronization.threadSynchronizationUsingManualResetEventExample = function (response) {
+        $('#threadSynchronizationUsingManualResetEventExample').append(threadingAndSynchronization.constructListItem(response));
+    };
+
     threadingAndSynchronization.init = function () {
         var broadcaster = $.connection.threadingAndSynchronizationHub;
         broadcaster.client.simpleThreadingExample = threadingAndSynchronization.simpleThreadingExample;
@@ -54,6 +58,7 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
         broadcaster.client.threadSynchronizationUsingMonitorExample = threadingAndSynchronization.threadSynchronizationUsingMonitorExample;
         broadcaster.client.threadSynchronizationUsingMutexExample = threadingAndSynchronization.threadSynchronizationUsingMutexExample;
         broadcaster.client.threadSynchronizationUsingSemaphoreExample = threadingAndSynchronization.threadSynchronizationUsingSemaphoreExample;
+        broadcaster.client.threadSynchronizationUsingManualResetEventExample = threadingAndSynchronization.threadSynchronizationUsingManualResetEventExample;
         $.connection.hub.start().done(function () {
             $('#simpleThreadingExampleButton').click(function () {
                 broadcaster.server.simpleThreadingExample();
@@ -78,6 +83,9 @@ webDevExamples.CSharp.ThreadingAndSynchronization = webDevExamples.CSharp.Thread
             });
             $('#threadSynchronizationUsingSemaphoreExampleButton').click(function () {
                 broadcaster.server.threadSynchronizationUsingSemaphoreExample();
+            });
+            $('#threadSynchronizationUsingManualResetEventExampleButton').click(function () {
+                broadcaster.server.threadSynchronizationUsingManualResetEventExample();
             });
         });
     };
