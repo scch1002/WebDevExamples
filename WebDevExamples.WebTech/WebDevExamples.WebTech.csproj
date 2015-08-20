@@ -141,6 +141,8 @@
     <Content Include="CSharp\Delegates\Delegates.html" />
     <Content Include="CSharp\Delegates\Delegates.js" />
     <Content Include="CSharp\Generics\Index.js" />
+    <Content Include="CSharp\TaskParallelismAndDataParallelism\TaskParallelismAndDataParallelism.html" />
+    <Content Include="CSharp\TaskParallelismAndDataParallelism\TaskParallelismAndDataParallelism.js" />
     <Content Include="CSharp\ThreadingAndSynchronization\ThreadingAndSynchronization.html" />
     <Content Include="CSharp\ThreadingAndSynchronization\ThreadingAndSynchronization.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -246,6 +248,7 @@
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass11.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass12.cs" />
     <Compile Include="CSharp\InheritanceEncapsulationPolymorphism\SubClass2.cs" />
+    <Compile Include="CSharp\TaskParallelismAndDataParallelism\TaskParallelismAndDataParallelismHub.cs" />
     <Compile Include="CSharp\ThreadingAndSynchronization\ThreadingAndSynchronizationHub.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
