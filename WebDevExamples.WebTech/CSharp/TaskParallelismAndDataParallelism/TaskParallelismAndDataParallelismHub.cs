@@ -12,13 +12,27 @@ namespace WebDevExamples.WebTech.CSharp.TaskParallelismAndDataParallelism
     {
         public void SimpleTaskExample()
         {
-            var simpleTask = new Task<string>(() => 
+            var simpleTask = new Task<string>(() =>
             {
-                Thread.Sleep(2000);
-                return "This is a simple task example";
+                return TestMethod("This is a simple task example.");
             });
             simpleTask.Start();
             Clients.Caller.SimpleTaskExample(simpleTask.Result);
+        }
+
+        public void TaskFactoryExample()
+        {
+            var taskFactoryExample = Task<string>.Factory.StartNew(() =>
+                {
+                    return TestMethod("This is a task factory example");
+                });
+            Clients.Caller.TaskFactoryExample(taskFactoryExample.Result);
+        }
+
+        private string TestMethod(string message)
+        {
+            Thread.Sleep(2000);
+            return message;
         }
     }
 }

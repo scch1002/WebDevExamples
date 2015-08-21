@@ -16,12 +16,20 @@ webDevExamples.CSharp.TaskParallelismAndDataParallelism = webDevExamples.CSharp.
         $('#simpleTaskExample').append(taskParallelismAndDataParallelism.constructListItem(response));
     };
 
+    taskParallelismAndDataParallelism.taskFactoryExample = function (response) {
+        $('#taskFactoryExample').append(taskParallelismAndDataParallelism.constructListItem(response));
+    };
+
     taskParallelismAndDataParallelism.init = function () {
         var broadcaster = $.connection.taskParallelismAndDataParallelismHub;
         broadcaster.client.simpleTaskExample = taskParallelismAndDataParallelism.simpleTaskExample;
+        broadcaster.client.taskFactoryExample = taskParallelismAndDataParallelism.taskFactoryExample;
         $.connection.hub.start().done(function () {
             $('#simpleTaskExampleButton').click(function () {
                 broadcaster.server.simpleTaskExample();
+            });
+            $('#taskFactoryExampleButton').click(function () {
+                broadcaster.server.taskFactoryExample();
             });
         });
     };
