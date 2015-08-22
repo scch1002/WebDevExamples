@@ -24,9 +24,18 @@ namespace WebDevExamples.WebTech.CSharp.TaskParallelismAndDataParallelism
         {
             var taskFactoryExample = Task<string>.Factory.StartNew(() =>
                 {
-                    return TestMethod("This is a task factory example");
+                    return TestMethod("This is a task factory example.");
                 });
             Clients.Caller.TaskFactoryExample(taskFactoryExample.Result);
+        }
+
+        public void TaskRunExample()
+        {
+            var taskRunExample = Task.Run(() =>
+            {
+                return TestMethod("This is a task run example.");
+            });
+            Clients.Caller.TaskRunExample(taskRunExample.Result);
         }
 
         private string TestMethod(string message)
