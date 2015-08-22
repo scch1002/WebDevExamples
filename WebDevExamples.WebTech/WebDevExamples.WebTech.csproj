@@ -217,7 +217,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\api\ExamplesController.cs" />
     <Compile Include="Controllers\CovarianceAndContravarianceController.cs" />
-    <Compile Include="Controllers\DelegatesController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GenericsController.cs" />
     <Compile Include="Controllers\InheritanceEncapsulationPolymorphismController.cs" />
