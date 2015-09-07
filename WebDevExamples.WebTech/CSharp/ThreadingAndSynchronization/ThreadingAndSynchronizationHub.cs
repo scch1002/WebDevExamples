@@ -30,9 +30,6 @@ namespace WebDevExamples.WebTech.CSharp.ThreadingAndSynchronization
 
         public void ThreadStaticExample()
         {
-            
-            var value = 0;
-
             var threadLocalT1 = new Thread(() =>
             {
                 for (var count = 0; count < 5; count++)
